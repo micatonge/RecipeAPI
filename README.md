@@ -4,7 +4,6 @@ This project is a web application for searching recipes by title, developed as p
 
 ## Objective
 
-Develop a web application for searching recipes by title.
 ![Alt Text](https://raw.githubusercontent.com/micatonge/RecipeAPI/main/public/images/wcg.gif)
 
 ## Requirements
