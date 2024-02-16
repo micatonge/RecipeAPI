@@ -1,9 +1,14 @@
-'use client'
-import React, { useState } from 'react';
-import PageLayout from './ui/PageLayout';
-import RecipeCard from './ui/RecipeCard';
-import { fetchRepo, fetchVeganRecipes, fetchVegetarianRecipes, fetchGlutenFreeRecipes } from './api/api'; // Import necessary functions
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+"use client";
+import React, { useState } from "react";
+import RecipeCard from "./ui/RecipeCard";
+import {
+  fetchRepo,
+  fetchVeganRecipes,
+  fetchVegetarianRecipes,
+  fetchGlutenFreeRecipes,
+} from "./api/api"; // Import necessary functions
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PageLayout from "./ui/pageLayout";
 
 // Create a new instance of QueryClient
 const queryClient = new QueryClient();
@@ -20,7 +25,7 @@ export default function Home() {
     }
     try {
       const data = await fetchRepo(query);
-      console.log('Recipes:', data);
+      console.log("Recipes:", data);
       if (Array.isArray(data) && data.length > 0) {
         setRecipes(data);
         setError(null);
@@ -33,7 +38,7 @@ export default function Home() {
       setError("Error fetching data. Please try again.");
       setRecipes([]);
     }
-  }
+  };
 
   // Handler function for clicking vegan filter
   const handleVeganClick = async () => {
@@ -45,7 +50,7 @@ export default function Home() {
       setError("Error fetching vegan recipes. Please try again.");
       setRecipes([]);
     }
-  }
+  };
 
   // Handler function for clicking vegetarian filter
   const handleVegetarianClick = async () => {
@@ -57,7 +62,7 @@ export default function Home() {
       setError("Error fetching vegetarian recipes. Please try again.");
       setRecipes([]);
     }
-  }
+  };
 
   // Handler function for clicking gluten-free filter
   const handleGlutenFreeClick = async () => {
@@ -69,7 +74,7 @@ export default function Home() {
       setError("Error fetching gluten-free recipes. Please try again.");
       setRecipes([]);
     }
-  }
+  };
 
   // Handler function for clicking home icon
   const handleHomeClick = () => {
@@ -80,9 +85,9 @@ export default function Home() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PageLayout 
-        onSearch={handleSearch} 
-        showSpecialDiets={recipes.length === 0} 
+      <PageLayout
+        onSearch={handleSearch}
+        showSpecialDiets={recipes.length === 0}
         onVeganClick={handleVeganClick} // Pass click handler for vegan
         onVegetarianClick={handleVegetarianClick} // Pass click handler for vegetarian
         onGlutenFreeClick={handleGlutenFreeClick} // Pass click handler for gluten-free
@@ -91,11 +96,20 @@ export default function Home() {
         {/* Display error message if there is an error */}
         {error && <p className="error-message">{error}</p>}
         {/* Display recipe cards */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '50px', marginRight: '50px', marginTop: '45px', justifyContent: 'space-between' }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            marginLeft: "50px",
+            marginRight: "50px",
+            marginTop: "45px",
+            justifyContent: "space-between",
+          }}
+        >
           {recipes.map((recipe: any, index: number) => (
-            <div key={index} style={{ flexBasis: '30%', marginTop: '20px' }}>
-              <RecipeCard 
-                recipe={recipe} 
+            <div key={index} style={{ flexBasis: "30%", marginTop: "20px" }}>
+              <RecipeCard
+                recipe={recipe}
                 onClick={() => {
                   // No need to fetch recipe information here, handled by FullRecipe component
                 }}
