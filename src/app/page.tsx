@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React, { useState } from 'react';
 import PageLayout from './ui/PageLayout';
 import RecipeCard from './ui/RecipeCard';
@@ -91,9 +91,9 @@ export default function Home() {
         {/* Display error message if there is an error */}
         {error && <p className="error-message">{error}</p>}
         {/* Display recipe cards */}
-        <div className="flex flex-wrap mx-10 my-8 justify-between">
-                    {recipes.map((recipe: any, index: number) => (
-           <div key={index} className="flex-basis-30 mt-20">
+        <div style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '50px', marginRight: '50px', marginTop: '45px', justifyContent: 'space-between' }}>
+          {recipes.map((recipe: any, index: number) => (
+            <div key={index} style={{ flexBasis: '30%', marginTop: '20px' }}>
               <RecipeCard 
                 recipe={recipe} 
                 onClick={() => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import RecipeComponent from "./RecipeOpenAI"; 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { fetchRecipeInformation } from '../api/api'; // Import the fetchRecipeInformation function
@@ -9,29 +10,25 @@ interface RecipeCardProps {
 }
 
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onClick }) => {
-  // State to manage whether to show the full recipe details
   const [showFullRecipe, setShowFullRecipe] = useState(false);
-  // State to hold full recipe information
-  const [fullRecipe, setFullRecipe] = useState<any>(null);
+  const [fullRecipe, setFullRecipe] = useState<any>(null); // State to hold full recipe information
 
-  // Function to fetch full recipe information when the component mounts or recipe changes
   useEffect(() => {
     const fetchFullRecipe = async () => {
       try {
-        const fullRecipeData = await fetchRecipeInformation(recipe.id);
+        const fullRecipeData = await fetchRecipeInformation(recipe.id); // Fetch full recipe information using the recipe ID
         setFullRecipe(fullRecipeData);
       } catch (error) {
         console.error("Error fetching full recipe information:", error);
       }
     };
 
-    fetchFullRecipe();
-  }, [recipe.id]);
+    fetchFullRecipe(); // Call the fetchFullRecipe function when the component mounts
+  }, [recipe.id]); // Add recipe.id as a dependency to re-fetch when the recipe changes
 
   return (
-    <div className="flex justify-center items-start mb-8">
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', marginBottom: '8px' }}>
       <div style={{ maxWidth: showFullRecipe ? '300px' : '100%', width: '100%', marginRight: showFullRecipe ? '16px' : '0' }}>
-        {/* Recipe Card */}
         <Card
           onClick={() => setShowFullRecipe(!showFullRecipe)}
           style={{ cursor: 'pointer' }}
@@ -47,16 +44,13 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onClick }) => {
           </CardContent>
         </Card>
       </div>
-      {/* Show full recipe details if enabled */}
       {showFullRecipe && fullRecipe && (
         <div style={{ maxWidth: '800px', width: '100%' }}>
-          {/* Details */}
-          <div className="border border-gray-300 rounded-lg p-4 mb-8">
+          <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '16px', marginBottom: '8px' }}>
             <p><strong>Servings:</strong> {fullRecipe.servings}</p>
             <p><strong>Ready in Minutes:</strong> {fullRecipe.readyInMinutes}</p>
             <p><strong>Health Score:</strong> {fullRecipe.healthScore}</p>
 
-            {/* Ingredients */}
             <Accordion type="single" collapsible>
               <AccordionItem value="ingredients">
                 <AccordionTrigger>Ingredients</AccordionTrigger>
@@ -70,7 +64,6 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onClick }) => {
               </AccordionItem>
             </Accordion>
 
-            {/* Steps */}
             <Accordion type="single" collapsible>
               <AccordionItem value="steps">
                 <AccordionTrigger>Steps</AccordionTrigger>
