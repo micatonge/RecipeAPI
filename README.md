@@ -26,21 +26,6 @@ Develop a web application for searching recipes by title.
 - Design a clean and user-friendly UI.
 - Implement Shadcn/ui components for UI development.
 
-### Data Fetching
-
-- Bonus 1: Use TanStack query for efficient data fetching from a server or API.
-
-### Integration
-
-- Bonus 2: Integrate OpenAI API to provide additional features like ideas for recipe modifications or other suggestions.
-
-### Testing
-
-- Bonus 3: Include tests (unit, integration, and/or end-to-end) for main functionalities.
-
-## Deliverables
-
-- Source code hosted on a public repository (e.g., GitHub).
 
 ## Evaluation Criteria
 
@@ -50,19 +35,6 @@ Develop a web application for searching recipes by title.
 - **Testing:** Adequate coverage of the main functionalities.
 - **Bonus:** Implementation of bonus features.
 
-## Note
-
-- Recipe data can be hardcoded or sourced from an external API.
-
-## Getting Started
-
-If you've never started a Next.js project before, start [here](https://ui.shadcn.com/docs/installation/next).
-
-## Contact
-
-For any questions or clarifications regarding the assignment, feel free to contact Cassidy.
-
----
 
 ## Code Explanation
 
