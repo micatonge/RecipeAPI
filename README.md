@@ -1,5 +1,3 @@
-This project is a web application for searching recipes by title, developed as part of the Take Home Assignment for the L3 Front End Engineer position at AI Solutions. The primary objective is to showcase creativity, decision-making skills, and the ability to discuss thought processes during debrief.
-
 ## Objective
 
 ![Alt Text](https://raw.githubusercontent.com/micatonge/RecipeAPI/main/public/images/wcg.gif)
