@@ -1,5 +1,3 @@
-# Take Home Assignment - L3 Front End Engineer, AI Solutions
-
 This project is a web application for searching recipes by title, developed as part of the Take Home Assignment for the L3 Front End Engineer position at AI Solutions. The primary objective is to showcase creativity, decision-making skills, and the ability to discuss thought processes during debrief.
 
 ## Objective
